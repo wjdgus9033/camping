@@ -1,0 +1,76 @@
+.camp-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+  padding: 0;
+  margin: 8px;
+  width: 300px;
+  /* min-width: 288px;
+  max-width: 288px; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.camp-card:hover {
+  box-shadow: 0 8px 24px rgba(79,70,229,0.12);
+}
+.camp-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+.camp-info {
+  padding: 16px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.camp-info h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0a0a0a;
+  letter-spacing: -0.44px;
+}
+.camp-location {
+  color: #4a5565;
+  font-size: 14px;
+  margin: 0;
+}
+.camp-desc {
+  color: #6a7282;
+  font-size: 14px;
+  margin: 0;
+}
+.camp-card-footer {
+  border-top: 1px solid #f3f4f6;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  margin-top: 8px;
+}
+.camp-price {
+  color: #008236;
+  font-size: 16px;
+  font-weight: 600;
+}
+.camp-reserve-btn {
+  background: #00a63e;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  width: 80px;
+  height: 36px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.camp-reserve-btn:hover {
+  background: #008236;
+}

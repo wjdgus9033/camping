@@ -1,0 +1,58 @@
+export const campingList = [
+  {
+    name: '푸른숲 캠핑장',
+    location: '강원도 홍천',
+    features: '전기 / 샤워장 / 반려동물',
+    price: '₩45,000',
+    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    name: '산정호수 캠핑장',
+    location: '경기도 포천',
+    features: '전기 / 화장실 / 와이파이',
+    price: '₩50,000',
+    image: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    name: '청평호반 캠핑장',
+    location: '경기도 가평',
+    features: '전기 / 샤워장 / 바베큐',
+    price: '₩55,000',
+    image: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    name: '남한강변 캠핑장',
+    location: '충청북도 단양',
+    features: '전기 / 화장실 / 반려동물',
+    price: '₩40,000',
+    image: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    name: '백운산 오토캠핑장',
+    location: '전라남도 광양',
+    features: '전기 / 샤워장 / 매점',
+    price: '₩48,000',
+    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    name: '설악산 글램핑',
+    location: '강원도 속초',
+    features: '냉난방 / 침구 / 바베큐',
+    price: '₩120,000',
+    image: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    name: '제주도 해변캠핑장',
+    location: '제주도 서귀포',
+    features: '전기 / 샤워장 / 와이파이',
+    price: '₩65,000',
+    image: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    name: '지리산 숲속캠핑장',
+    location: '전라남도 구례',
+    features: '전기 / 화장실 / 반려동물',
+    price: '₩42,000',
+    image: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80',
+  },
+];
