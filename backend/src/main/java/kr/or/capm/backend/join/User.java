@@ -25,4 +25,7 @@ public class User {
     private String telecom;
     private String phone;
     private String email;
+
+    @Column(nullable = false)
+    private String role;
 }

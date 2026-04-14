@@ -10,7 +10,7 @@ const Join = () => {
   const navigate = useNavigate();
 
   const [form, setForm] = useState<FormType>({
-    useid: "",
+    userid: "",
     password: "",
     confirmPassword: "",
     username: "",
@@ -18,10 +18,11 @@ const Join = () => {
     telecom: "",
     phone: "",
     email: "",
+    emailDomain: "@naver.com",
   });
 
   const [errors, setErrors] = useState<ErrorsType>({
-    useid: "",
+    userid: "",
     password: "",
     confirmPassword: "",
     username: "",
@@ -47,7 +48,7 @@ const Join = () => {
     };
 
     setForm(updatedForm);
-    if (name === "useid") {
+    if (name === "userid") {
       setIsUseridChecked(false);
       setUseridCheckMsg("");
     }
@@ -58,14 +59,14 @@ const Join = () => {
     }
   };
   const handleCheckUserid = async () => {
-    if (!form.useid) {
+    if (!form.userid) {
       setUseridCheckMsg("아이디를 입력하세요");
       setIsUseridChecked(false);
       return;
     }
 
     try {
-      const res = await checkUseridApi(form.useid);
+      const res = await checkUseridApi(form.userid);
 
       if (res.data) {
         setUseridCheckMsg("이미 사용중인 아이디입니다.");
@@ -95,7 +96,12 @@ const Join = () => {
     }
 
     try {
-      await signupApi(form);
+      const submitData = {
+        ...form,
+        email: form.email + form.emailDomain,
+      };
+      
+      await signupApi(submitData);
       alert("회원가입 성공");
       navigate("/login");
     } catch (err) {
@@ -112,15 +118,15 @@ const Join = () => {
         <form className="join-form" onSubmit={errorsSubmit} noValidate>
 
           {/* 아이디 + 비밀번호 */}
-          <div className={`join-group-box ${errors.useid || errors.password || errors.confirmPassword ? "error" : ""
+          <div className={`join-group-box ${errors.userid || errors.password || errors.confirmPassword ? "error" : ""
             }`}>
 
             <div className="join-input-row">
               <span className="join-input-icon">👤</span>
               <input
                 type="text"
-                id="useid"
-                name="useid"
+                id="userid"
+                name="userid"
                 onChange={handleChange}
                 placeholder="아이디를 입력하세요"
               />
@@ -128,7 +134,8 @@ const Join = () => {
             </div>
             <div className="error-wrap">
               {useridCheckMsg && (
-                <p className={`error-msg ${isUseridChecked ? "blue" : "red"}`}>
+                <p className="error-msg"
+                  style={{ color: isUseridChecked ? "blue" : "#ff4d4f" }}>
                   {useridCheckMsg}
                 </p>
               )}
@@ -151,13 +158,15 @@ const Join = () => {
                 type="password"
                 id="confirmPassword"
                 name="confirmPassword"
+                minLength={8}
+                maxLength={20}
                 onChange={handleChange}
                 placeholder="비밀번호 확인"
               />
             </div>
           </div>
           <div className="error-wrap">
-            {isSubmitted && errors.useid && <p className="error-msg">{errors.useid}</p>}
+            {isSubmitted && errors.userid && <p className="error-msg">{errors.userid}</p>}
             {isSubmitted && errors.password && <p className="error-msg">{errors.password}</p>}
             {isSubmitted && errors.confirmPassword && <p className="error-msg">{errors.confirmPassword}</p>}
           </div>
@@ -220,7 +229,7 @@ const Join = () => {
                 onChange={handleChange}
                 placeholder="이메일"
               />
-              <select>
+              <select name="emailDomain" onChange={handleChange}>
                 <option>@naver.com</option>
                 <option>@gmail.com</option>
               </select>

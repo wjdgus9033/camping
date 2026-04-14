@@ -1,43 +1,47 @@
 export type FormType = {
-  useid: string;
+  userid: string;
   password: string;
   confirmPassword: string;
   username: string;
   birth: string;
-  telecom:string,
+  telecom: string,
   phone: string;
   email: string;
+  emailDomain:string;
 };
 
 export type ErrorsType = {
-  useid: string;
+  userid: string;
   password: string;
   confirmPassword: string;
   username: string;
   birth: string;
-  telecom:string,
+  telecom: string,
   phone: string;
   email: string;
 };
 
 export const Errors = (form: FormType): ErrorsType => {
   let newErrors: ErrorsType = {
-    useid: "",
+    userid: "",
     password: "",
     confirmPassword: "",
     username: "",
     birth: "",
-    telecom:"",
+    telecom: "",
     phone: "",
     email: "",
   };
 
-  if (!form.useid) {
-    newErrors.useid = "아이디는 필수 정보입니다.";
+  if (!form.userid) {
+    newErrors.userid = "아이디는 필수 정보입니다.";
   }
 
   if (!form.password) {
     newErrors.password = "비밀번호는 필수 정보입니다.";
+  }
+  if (form.password.length < 8 || form.password.length > 20) {
+    newErrors.password = "비밀번호는 8~20자로 입력해주세요.";
   }
 
   if (!form.confirmPassword) {
@@ -59,10 +63,10 @@ export const Errors = (form: FormType): ErrorsType => {
     newErrors.birth = "생년월일은 필수 정보입니다.";
   }
 
-  if(!form.telecom){
+  if (!form.telecom) {
     newErrors.telecom = "통신사 선택해주세요."
   }
-  
+
   if (!form.phone) {
     newErrors.phone = "전화번호는 필수 정보입니다.";
   }
